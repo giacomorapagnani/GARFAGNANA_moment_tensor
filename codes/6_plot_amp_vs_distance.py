@@ -51,31 +51,32 @@ events = model.load_events(catname)
 #print('Number of events:', len(events))
 
 ###################################
-# RMS rumore da OT -10 a  OT
 
 for file in os.listdir(datadir):
     #select event
-    name = os.fsdecode(file)
+    ev_name = os.fsdecode(file)
 
 # check if the file has the same prefix of the event name in the catalogue (for example 'garfagnana')
-    if name.startswith(events[0].name.split('_')[0]): 
+    if ev_name.startswith(events[0].name.split('_')[0]): 
+        ev_path=os.path.join(datadir,ev_name)
 
-        ev_dir=os.path.join(datadir,name)
-        ev_name=os.path.join(ev_dir,name + '.mseed')
 
         for ev in events:
-            if ev.name==name:   #if event is present in catalogue
-                print('Selected event:',name)
+            if ev.name==ev_name:   #if event is present in catalogue
+                print('Selected event:',ev_name)
                 #print('lat:',ev.lat,' lon:',ev.lon)
                 event=ev
 
-                figname = os.path.join(plotdir, name + '_amplitude_vs_distance.pdf')
+                figname = os.path.join(plotdir, ev_name + '_amplitude_vs_distance.pdf')
                 if os.path.isfile(figname): # if pdf exist of the event
                     continue
                 else:
-                    print(f'new figure for {name}')
-                    #select wavelet (obspy)  
-                    w=read(ev_name)
+                    print(f'New figure for {ev_name}')
+                    #select traces  
+                    #for tr_file in os.listdir(ev_path):
+                    #    tr_name = os.fsdecode(tr_file)
+                    #    tr_path=os.path.join(ev_path,tr_name)
+                    w=read(tr_path)
                     #print('number of traces in event:',len(w))
 
                     st_coord=[]
@@ -142,7 +143,7 @@ for file in os.listdir(datadir):
 
                     # Plot per il primo subplot
                     magnitude_val=str(ev.tags[1])
-                    plt.title(f'{name}, {magnitude_val}')
+                    plt.title(f'{ev_name}, {magnitude_val}')
                     axs.scatter(num.array(distance1),
                                     num.array(hhe),
                                     label='HHE', s=30, color='green')
@@ -173,7 +174,7 @@ for file in os.listdir(datadir):
 
                     for i, txt in enumerate(channel1):
                         axs.annotate(txt, (distance1[i]+distance1[i]/50, hhe[i]),color='tab:green',size=10)  # '+distance1[i]/50' to shift the name to the right
-                                                                                                                #  !!!DO NOT USE FOR BIG EQ!!! CHANGE in 'distance2[i]/50000'
+                                                                                                                
                     for i, txt in enumerate(channel2):
                         axs.annotate(txt, (distance2[i]+distance2[i]/50, hhn[i]),color='tab:orange',size=10)
 
