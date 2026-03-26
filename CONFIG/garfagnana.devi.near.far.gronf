@@ -15,8 +15,28 @@ dataset_config: !grond.DatasetConfig
 target_groups:
 - !grond.WaveformTargetGroup
   normalisation_family: 'td'
-  path: 'td.far'
+  path: 'td.near'
   weight: 1.0
+  interpolation: 'nearest_neighbor'
+  store_id: garfagnana_near
+  distance_min: 0.1e3
+  distance_max: 20e3
+  channels: [Z,T,R]
+  exclude: []
+  misfit_config: !grond.WaveformMisfitConfig
+    fmin: 0.5
+    fmax: 2.0
+    ffactor: 1.5
+    domain: 'time_domain'
+    norm_exponent: 1
+    tmin: '{stored:P}-0.5'
+    tmax: '{stored:S}+1.5'
+    tautoshift_max: 1.0
+    autoshift_penalty_max: 0.2
+- !grond.WaveformTargetGroup
+  normalisation_family: 'td'
+  path: 'td.far'
+  weight: 0.6
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 20e3
