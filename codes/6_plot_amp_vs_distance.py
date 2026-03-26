@@ -39,13 +39,13 @@ meta_datadir=os.path.join(workdir,'META_DATA')
 datadir=os.path.join(workdir,'DATA_response')
 
 #select stations (pyrocko)
-station_name = os.path.join(meta_datadir, 'stations_garfagnana_INGV.pf')
+station_name = os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.pf')
 
 st = model.load_stations(station_name)
 #print('Number of stations', len(st))
 
 #select catalogue (pyrocko)
-catname = os.path.join(catdir, 'catalogue_flegrei_mag_2_5.pf')
+catname = os.path.join(catdir, 'catalogue_garfagnana_ml_4.pf')
 
 events = model.load_events(catname)
 #print('Number of events:', len(events))
@@ -57,7 +57,8 @@ for file in os.listdir(datadir):
     #select event
     name = os.fsdecode(file)
 
-    if name.startswith(events[0].name.split('_')[0]): # if name starts with 'flegrei'
+# check if the file has the same prefix of the event name in the catalogue (for example 'garfagnana')
+    if name.startswith(events[0].name.split('_')[0]): 
 
         ev_dir=os.path.join(datadir,name)
         ev_name=os.path.join(ev_dir,name + '.mseed')

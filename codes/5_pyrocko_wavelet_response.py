@@ -32,49 +32,60 @@ import geopy.distance
 workdir='../'
 
 datadir=os.path.join(workdir,'DATA')
-newdatadir=os.path.join(workdir,'DATA_RESPONSE')
+newdatadir=os.path.join(workdir,'DATA_response')
 
 ###################################
 meta_datadir=os.path.join(workdir,'META_DATA')
 
-stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV.xml')
+stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.xml')
 stations=read_inventory(stations_name)                             
 
 #print(stations)
 
-for file in os.listdir(datadir):
-    #select event
-    name = os.fsdecode(file)
-
-    if name.startswith('.'): 
+for eventdir in os.listdir(datadir):
+    # select event
+    ev_name = os.fsdecode(eventdir)
+    
+    if ev_name.startswith('.'): 
         continue
+
     else:
-        ev_dir=os.path.join(datadir,name)
-        ev_name=os.path.join(ev_dir,name + '.mseed')
+        ev_path=os.path.join(datadir,ev_name)
+        new_eventpath=os.path.join(newdatadir,ev_name)
 
-        waveletdir=os.path.join(newdatadir,name)
-        wavelet_name= os.path.join(waveletdir,name)  
-        if os.path.isdir(waveletdir): # check if file already exist
+        if os.path.isdir(new_eventpath): # check if file already exist
+            print('\nINFO: Event already exists, skipping:',ev_name)
             continue
+
         else:
-            #select wavelet (obspy)  
-            w=read(ev_name)
-            print('loading event:',ev_name.split('/')[2])
+            os.mkdir(new_eventpath) # create new directory for event
+            print('\n\nRemoving response from event:',ev_name)
+            for tr_file in os.listdir(ev_path):
+                # select trace
+                tr_name = os.fsdecode(tr_file)
+                if tr_name.startswith('.'): 
+                    continue
+                else:
+                    tr_path=os.path.join(ev_path,tr_name)
+                    new_tr_path= os.path.join(new_eventpath,tr_name)  
+            
+                    # select wavelet (obspy)  
+                    w=read(tr_path)
+                    print('loading trace:',tr_path.split('/')[-1])
 
-            #wave.merge(fill_value=0)
-            # trim over the [t1, t2] interval
-            #wave.trim(starttime=event_start, endtime=event_end, pad=True, fill_value=0)
+                    #wave.merge(fill_value=0)
+                    # trim over the [t1, t2] interval
+                    #wave.trim(starttime=event_start, endtime=event_end, pad=True, fill_value=0)
 
-            # remove trend
-            w.detrend("demean")
+                    # remove trend
+                    w.detrend("demean")
 
-            #remove instrumental response
-            #pre_filt = [0.1, 0.2, 20,30]       # for small eq
-            pre_filt = [0.01, 0.03, 10,15]       # for big eq
+                    # pre filter
+                    #pre_filt = [0.1, 0.2, 20,30]       # for small eq
+                    pre_filt = [0.01, 0.03, 10,15]       # for big eq
 
-            #remove instrumental response
-            w.remove_response(inventory=stations, output='DISP', pre_filt=pre_filt)
+                    # remove instrumental response
+                    w.remove_response(inventory=stations, output='DISP', pre_filt=pre_filt)
 
-            os.mkdir(waveletdir)  
-            w.write(wavelet_name +'.mseed',format='MSEED')
-            print('response removed and saved!')
+                    w.write(new_tr_path,format='MSEED')
+            print('Response removed and wavelets saved!')
