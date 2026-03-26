@@ -20,7 +20,7 @@ target_groups:
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 20e3
-  distance_max: 150e3
+  distance_max: 200e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
@@ -57,10 +57,10 @@ analyser_configs:
 optimiser_config: !grond.HighScoreOptimiserConfig
   sampler_phases:
   - !grond.UniformSamplerPhase
-    niterations: 5000
+    niterations: 10000
     ntries_preconstrain_limit: 1000
   - !grond.DirectedSamplerPhase
-    niterations: 30000
+    niterations: 50000
     ntries_preconstrain_limit: 1000
     starting_point: excentricity_compensated
     sampler_distribution: normal
