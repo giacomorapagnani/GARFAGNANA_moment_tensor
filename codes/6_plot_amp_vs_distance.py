@@ -83,7 +83,7 @@ for file in os.listdir(datadir):
                         for s in st:
                             if trace.stats.station==s.station:
                                 n_el= int( round( len(trace.data)/6 ) )                     # take first 1/6 of the entire leght to compute the rms 'trace.data[:n_el]'
-                                rms= num.sqrt( num.mean(trace.data[:n_el]**2) )             # !!!DO NOT USE FOR BIG EQ!!! CHANGE in 'trace.data[-n_el:]' take last 1/6
+                                rms= num.sqrt( num.mean(trace.data[:n_el]**2) )             
                                 st_coord.append( [trace.stats.station, trace.stats.channel , s.lat,s.lon, max( abs(trace.data) ) , rms ] ) #station, channel, lat, long, max, rms
 
                     #print('number of traces:',len(st_coord))
