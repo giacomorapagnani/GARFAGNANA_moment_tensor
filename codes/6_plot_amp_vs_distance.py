@@ -63,19 +63,35 @@ for file in os.listdir(datadir):
 
         for ev in events:
             if ev.name==ev_name:   #if event is present in catalogue
-                print('Selected event:',ev_name)
+                print('\nEVENT:',ev_name)
                 #print('lat:',ev.lat,' lon:',ev.lon)
                 event=ev
-
                 figname = os.path.join(plotdir, ev_name + '_amplitude_vs_distance.pdf')
+                
                 if os.path.isfile(figname): # if pdf exist of the event
-                    continue
-                else:
-                    print(f'New figure for {ev_name}')
-                    #select traces  
-                    #for tr_file in os.listdir(ev_path):
-                    #    tr_name = os.fsdecode(tr_file)
-                    #    tr_path=os.path.join(ev_path,tr_name)
+                    os.remove(figname) # remove it to create a new one with the same name
+                    print(f'REMOVING old figure for {ev_name} to create a new one')
+                
+                print(f'CREATING new figure for {ev_name}')
+
+                # separate 3 channels
+                channel1=[]
+                channel2=[]
+                channel3=[]
+                distance1=[]
+                distance2=[]
+                distance3=[]
+                hhe=[]
+                hhn=[]
+                hhz=[]
+                rms1=[]
+                rms2=[]
+                rms3=[]
+
+                #select traces  
+                for tr_file in os.listdir(ev_path):
+                    tr_name = os.fsdecode(tr_file)
+                    tr_path=os.path.join(ev_path,tr_name)
                     w=read(tr_path)
                     #print('number of traces in event:',len(w))
 
@@ -100,20 +116,6 @@ for file in os.listdir(datadir):
 
                         dist_vs_amp.append( [ row[0], row[1],dist,row[4],row[5] ] ) # station, channel, dist, max, rms
 
-                    # separate 3 channels
-                    channel1=[]
-                    channel2=[]
-                    channel3=[]
-                    distance1=[]
-                    distance2=[]
-                    distance3=[]
-                    hhe=[]
-                    hhn=[]
-                    hhz=[]
-                    rms1=[]
-                    rms2=[]
-                    rms3=[]
-
                     for row in dist_vs_amp:
                         channel=row[1]
                         if channel=='HHE':
@@ -136,63 +138,61 @@ for file in os.listdir(datadir):
                     #print(len(distance2),len(hhn),len(channel2))
                     #print(len(distance3),len(hhz),len(channel3))
 
+                # Creazione della figura e dei subplot
+                fig, axs = plt.subplots(1, 1, figsize=(17, 11), sharex=False)
 
+                # Plot per il primo subplot
+                magnitude_val=str(ev.magnitude)
+                plt.title(f'Event: {ev_name}, catalogue magnitude:{magnitude_val}')
+                axs.scatter(num.array(distance1),
+                                num.array(hhe),
+                                label='HHE', s=30, color='green')
+                axs.scatter(num.array(distance1),
+                                num.array(rms1),
+                                label='rms noise HHE',marker='_',s=60, color='green')
 
-                    # Creazione della figura e dei subplot
-                    fig, axs = plt.subplots(1, 1, figsize=(17, 11), sharex=False)
+                axs.scatter(num.array(distance2),
+                                num.array(hhn),
+                                label='HHN', s=30, color='orange')
+                axs.scatter(num.array(distance2),
+                                num.array(rms2),
+                                label='rms noise HHN',marker='_', s=60, color='orange')
 
-                    # Plot per il primo subplot
-                    magnitude_val=str(ev.tags[1])
-                    plt.title(f'{ev_name}, {magnitude_val}')
-                    axs.scatter(num.array(distance1),
-                                    num.array(hhe),
-                                    label='HHE', s=30, color='green')
-                    axs.scatter(num.array(distance1),
-                                    num.array(rms1),
-                                    label='rms noise HHE',marker='_',s=60, color='green')
+                axs.scatter(num.array(distance3),
+                                num.array(hhz),
+                                label='HHZ', s=30, color='blue')
+                axs.scatter(num.array(distance3),
+                                num.array(rms3),
+                                label='rms noise HHZ',marker='_', s=60, color='blue')
 
-                    axs.scatter(num.array(distance2),
-                                    num.array(hhn),
-                                    label='HHN', s=30, color='orange')
-                    axs.scatter(num.array(distance2),
-                                    num.array(rms2),
-                                    label='rms noise HHN',marker='_', s=60, color='orange')
+                axs.set_xscale("log")
+                axs.set_yscale("log")
+                axs.set_ylabel('Amplitude')
+                axs.grid(True)
+                axs.set_xlabel('Distance [km]')
+                axs.legend()
 
-                    axs.scatter(num.array(distance3),
-                                    num.array(hhz),
-                                    label='HHZ', s=30, color='blue')
-                    axs.scatter(num.array(distance3),
-                                    num.array(rms3),
-                                    label='rms noise HHZ',marker='_', s=60, color='blue')
+                for i, txt in enumerate(channel1):
+                    axs.annotate(txt, (distance1[i]+distance1[i]/50, hhe[i]),color='tab:green',size=10)  # '+distance1[i]/50' to shift the name to the right
+                                                                                                            
+                for i, txt in enumerate(channel2):
+                    axs.annotate(txt, (distance2[i]+distance2[i]/50, hhn[i]),color='tab:orange',size=10)
 
-                    axs.set_xscale("log")
-                    axs.set_yscale("log")
-                    axs.set_ylabel('Amplitude')
-                    axs.grid(True)
-                    axs.set_xlabel('Distance [km]')
-                    axs.legend()
+                for i, txt in enumerate(channel3):
+                    axs.annotate(txt, (distance3[i]+distance3[i]/50, hhz[i]),color='tab:blue',size=10)
 
-                    for i, txt in enumerate(channel1):
-                        axs.annotate(txt, (distance1[i]+distance1[i]/50, hhe[i]),color='tab:green',size=10)  # '+distance1[i]/50' to shift the name to the right
-                                                                                                                
-                    for i, txt in enumerate(channel2):
-                        axs.annotate(txt, (distance2[i]+distance2[i]/50, hhn[i]),color='tab:orange',size=10)
+                #SAVE FIGURE SWITCH
+                save_fig=True
 
-                    for i, txt in enumerate(channel3):
-                        axs.annotate(txt, (distance3[i]+distance3[i]/50, hhz[i]),color='tab:blue',size=10)
+                if save_fig:
+                
+                    plt.savefig(figname)
 
-                    #SAVE FIGURE SWITCH
-                    save_fig=True
+                    # SVG format
+                    #figname_svg = os.path.join(plotdir, name + '_amplitude_vs_distance.svg')
+                    #plt.savefig(figname_svg)
 
-                    if save_fig:
-                    
-                        plt.savefig(figname)
+                    print('SAVING: Figure',figname.split('/')[-1],'!\n')
 
-                        # SVG format
-                        #figname_svg = os.path.join(plotdir, name + '_amplitude_vs_distance.svg')
-                        #plt.savefig(figname_svg)
-
-                        print('Figure',figname.split('/')[-1],'saved!\n')
-
-                    #plt.show()
-                    plt.close()
+                #plt.show()
+                plt.close()
