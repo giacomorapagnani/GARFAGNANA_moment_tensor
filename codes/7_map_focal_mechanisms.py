@@ -13,22 +13,13 @@ metadatadir =  os.path.join(workdir,'META_DATA')
 ##########################################
 # COORDINATES FOR GULF MAP OR POZZUOLI MAP
 
-switch_coord_pozzuoli=False
+maxlat=44.208978
+minlat=43.877464
 
-if switch_coord_pozzuoli:
-    # POZZUOLI COORD (SUPERNEAR)
-    minlon=14.12
-    maxlon=14.16
-    minlat=40.82
-    maxlat=40.84
-    map_name='pozzuoli'
-else:
-    # GULF COORD (NEAR)
-    minlon=14.07
-    maxlon=14.175
-    minlat=40.775
-    maxlat=40.855
-    map_name='gulf'
+maxlon=10.601528
+minlon=9.927944
+
+map_name='garfagnana'
 
 #   CREATE FIGURE
 fig = pygmt.Figure()
@@ -50,8 +41,8 @@ fig.grdimage(grid=topo_data, region=region, projection=projection, shading="+a45
 fig.coast(shorelines="1/0.5p,black", resolution="f", water="#EBEBEE")
 
 #   PLOT FOCAL MECHANISM
-filename='catalogue_flegrei_MT_final_VLP_2_reloc'             ###CHANGE###  catalogue_flegrei_MT_final 
-                                                            # catalogue_flegrei_MT_final_VLP_reloc
+filename='catalogue_garfagnana_MT'             ###CHANGE###   
+                                                # 
 events_name=os.path.join(catdir,filename+'.pf')              
 fm_events = model.load_events(events_name)
 
@@ -65,7 +56,7 @@ switch_deviatoric=True
 ##########################################
 ############## SWITCH ##############
 ##########################################
-switch_timestamps=True                                                                 
+switch_timestamps=False                                                                 
 
 
 # loop on events in catalogue and plot FM
@@ -119,15 +110,16 @@ for ev in fm_events:
             )
 
 #   STATIONS
-f=open(metadatadir + '/stations_flegrei_INGV_final.pf','r')
+f=open(metadatadir + '/stations_garfagnana_INGV_RESIF.pf','r')             #CHANGE
 latsta=[]
 lonsta=[]
 namsta=[]
 for line in f:
     toks=line.split()
-    latsta.append(eval(toks[1]))
-    lonsta.append(eval(toks[2]))
-    namsta.append(toks[0].split('.')[1])
+    if len(toks)>4:
+        latsta.append(eval(toks[1]))
+        lonsta.append(eval(toks[2]))
+        namsta.append(toks[0].split('.')[1])
 latsta=np.array(latsta)
 lonsta=np.array(lonsta)
 
