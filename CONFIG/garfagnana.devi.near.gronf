@@ -3,11 +3,11 @@
 --- !grond.Config
 rundir_template: runs/${problem_name}.grun
 dataset_config: !grond.DatasetConfig
-  stations_path: '../META_DATA/stations_garfagnana_INGV_RESIF.pf'
+  stations_path: '../META_DATA/stations_garfagnana_INGV_RESIF_UP.pf'
   events_path: '../CAT/catalogue_garfagnana_ml_4.pf'
   waveform_paths: ['../DATA/${event_name}']
   #waveform_paths: ..path/to/waveforms work with continous data
-  responses_stationxml_paths: ['../META_DATA/stations_garfagnana_INGV_RESIF.xml']
+  responses_stationxml_paths: ['../META_DATA/stations_garfagnana_INGV_RESIF_UP.xml']
   extend_incomplete: true
   #picks_paths: ['../MARKERS/${event_name}']
   blacklist_paths: ['../BLACKLIST/${event_name}.black']
@@ -57,7 +57,7 @@ analyser_configs:
 optimiser_config: !grond.HighScoreOptimiserConfig
   sampler_phases:
   - !grond.UniformSamplerPhase
-    niterations: 5000
+    niterations: 10000
     ntries_preconstrain_limit: 1000
   - !grond.DirectedSamplerPhase
     niterations: 50000

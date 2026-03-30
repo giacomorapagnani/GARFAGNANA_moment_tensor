@@ -37,7 +37,7 @@ newdatadir=os.path.join(workdir,'DATA_response')
 ###################################
 meta_datadir=os.path.join(workdir,'META_DATA')
 
-stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.xml')
+stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_UP.xml')
 stations=read_inventory(stations_name)                             
 
 #print(stations)
@@ -81,8 +81,7 @@ for eventdir in os.listdir(datadir):
                     w.detrend("demean")
 
                     # pre filter
-                    #pre_filt = [0.1, 0.2, 20,30]       # for small eq
-                    pre_filt = [0.01, 0.03, 10,15]       # for big eq
+                    pre_filt = [0.005, 0.01, 45,50]       # for big eq
 
                     # remove instrumental response
                     w.remove_response(inventory=stations, output='DISP', pre_filt=pre_filt)

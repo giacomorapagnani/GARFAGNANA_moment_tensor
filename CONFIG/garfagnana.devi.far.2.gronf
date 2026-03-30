@@ -3,11 +3,11 @@
 --- !grond.Config
 rundir_template: runs/${problem_name}.grun
 dataset_config: !grond.DatasetConfig
-  stations_path: '../META_DATA/stations_garfagnana_INGV_RESIF.pf'
+  stations_path: '../META_DATA/stations_garfagnana_INGV_RESIF_UP.pf'
   events_path: '../CAT/catalogue_garfagnana_ml_4.pf'
   waveform_paths: ['../DATA/${event_name}']
   #waveform_paths: ..path/to/waveforms work with continous data
-  responses_stationxml_paths: ['../META_DATA/stations_garfagnana_INGV_RESIF.xml']
+  responses_stationxml_paths: ['../META_DATA/stations_garfagnana_INGV_RESIF_UP.xml']
   extend_incomplete: true
   #picks_paths: ['../MARKERS/${event_name}']
   blacklist_paths: ['../BLACKLIST/${event_name}.black']
@@ -19,7 +19,7 @@ target_groups:
   weight: 1.0
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
-  distance_min: 20e3
+  distance_min: 40e3
   distance_max: 200e3
   channels: [R,Z,T]
   exclude: []

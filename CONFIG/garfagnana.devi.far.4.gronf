@@ -25,7 +25,7 @@ target_groups:
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
     fmin: 0.05
-    fmax: 0.1
+    fmax: 0.10
     ffactor: 1.5
     domain: 'time_domain'
     norm_exponent: 1
@@ -34,7 +34,7 @@ target_groups:
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
 problem_config: !grond.CMTProblemConfig
-  name_template: cmt_devi_far_${event_name}
+  name_template: cmt_devi_far_4_${event_name}
   norm_exponent: 2
   ranges:
     depth: 1000 .. 15000
