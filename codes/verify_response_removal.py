@@ -29,7 +29,7 @@ import os
 # ─── CONFIGURA QUI ────────────────────────────────────────────────────────────
 
 # Percorso a UN file waveform da testare
-WAVEFORM_FILE = '../DATA/garfagnana_2026_03_25_07_13_43/garfagnana_IV_MSSA_2026_03_25_07_13_43.mseed'
+WAVEFORM_FILE = '../DATA/garfagnana_2026_03_25_07_13_43/garfagnana_UP_UP01_2026_03_25_07_13_43.mseed'
 
 # Inventory
 INVENTORY_FILE = '../META_DATA/stations_garfagnana_INGV_RESIF_UP.xml'

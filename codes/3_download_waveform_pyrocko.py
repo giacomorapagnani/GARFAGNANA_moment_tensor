@@ -53,7 +53,7 @@ clients_names = {                   #CHANGE clients and networks to match the st
 
 # 
 
-stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.xml')     #CHANGE 
+stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_2.xml')     #CHANGE 
 xml_file=read_inventory(stations_name)                                 
 
 #print(stations)
