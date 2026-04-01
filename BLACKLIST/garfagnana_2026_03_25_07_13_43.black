@@ -13,3 +13,16 @@ POPM
 MTRZ
 BOZZ
 RORO
+# far (160 km < X < 200 km)
+CRE
+SALO
+GBOS
+MBAL
+PARC
+ROVR
+# far (200 km < X < inf km)
+TEOL
+MONC
+SACS
+VARE
+MGAB
