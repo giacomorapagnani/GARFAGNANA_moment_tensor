@@ -1,13 +1,15 @@
-# near
-GU.EQUI..R
-GU.EQUI..T
+# near (X < 40 km), not definitive stations
+EQUI
 UP05
-#IV.PLMA..R
-#IV.PLMA..T
-UP.UP08..R
-UP.UP08..T
+UP.UP01..R
+UP.UP01..T
+UP08
 UP.UP03..R
 UP.UP03..T
 GU.GRAM..R
 GU.GRAM..T
-# far
+# far (40 km < X < 160 km)
+POPM
+MTRZ
+BOZZ
+RORO

@@ -20,14 +20,14 @@ target_groups:
   weight: 1.0
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
-  distance_min: 50e3
-  distance_max: 300e3
+  distance_min: 40e3
+  distance_max: 160e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
     fmin: 0.04
     fmax: 0.1
-    ffactor: 1.5
+    ffactor: 1.25
     domain: 'time_domain'
     norm_exponent: 1
     tmin: '{stored:any_P}-10'
@@ -54,7 +54,7 @@ problem_config: !grond.CMTProblemConfig
   mt_type: deviatoric
 analyser_configs:
 - !grond.TargetBalancingAnalyserConfig
-  niterations: 1000
+  niterations: 2000
 optimiser_config: !grond.HighScoreOptimiserConfig
   sampler_phases:
   - !grond.UniformSamplerPhase

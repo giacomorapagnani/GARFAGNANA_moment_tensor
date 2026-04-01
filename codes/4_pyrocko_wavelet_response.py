@@ -39,9 +39,10 @@ meta_datadir=os.path.join(workdir,'META_DATA')
 
 stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_UP.xml')
 stations=read_inventory(stations_name)                             
-
 #print(stations)
 
+OUTPUT='DISP'                # CHANGE: 'DISP', 'VEL', 'ACC'
+###################################
 for eventdir in os.listdir(datadir):
     # select event
     ev_name = os.fsdecode(eventdir)
@@ -51,14 +52,14 @@ for eventdir in os.listdir(datadir):
 
     else:
         ev_path=os.path.join(datadir,ev_name)
-        new_eventpath=os.path.join(newdatadir,ev_name)
+        new_eventpath=os.path.join(newdatadir,ev_name + '_' + OUTPUT)
 
         if os.path.isdir(new_eventpath): # check if file already exist
             print('\nINFO: Event already exists, skipping:',ev_name)
             continue
 
         else:
-            os.mkdir(new_eventpath) # create new directory for event
+            os.mkdir(new_eventpath ) # create new directory for event
             print('\n\nRemoving response from event:',ev_name)
             for tr_file in os.listdir(ev_path):
                 # select trace
@@ -84,7 +85,7 @@ for eventdir in os.listdir(datadir):
                     pre_filt = [0.005, 0.01, 45,50]       # for big eq
 
                     # remove instrumental response
-                    w.remove_response(inventory=stations, output='DISP', pre_filt=pre_filt)
+                    w.remove_response(inventory=stations, output=OUTPUT, pre_filt=pre_filt)
 
                     w.write(new_tr_path,format='MSEED')
             print('Response removed and wavelets saved!')
