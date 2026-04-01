@@ -21,7 +21,7 @@ target_groups:
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 40e3
-  distance_max: 200e3
+  distance_max: 300e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
@@ -41,7 +41,7 @@ target_groups:
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 40e3
-  distance_max: 200e3
+  distance_max: 300e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
