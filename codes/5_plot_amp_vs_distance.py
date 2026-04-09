@@ -39,34 +39,35 @@ meta_datadir=os.path.join(workdir,'META_DATA')
 datadir=os.path.join(workdir,'DATA_response')
 
 #select stations (pyrocko)
-station_name = os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.pf')
+station_name = os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_UP.pf')       # CHANGE
 
 st = model.load_stations(station_name)
 #print('Number of stations', len(st))
 
 #select catalogue (pyrocko)
-catname = os.path.join(catdir, 'catalogue_garfagnana_ml_4.pf')
+catname = os.path.join(catdir, 'catalogue_pistoia.pf')       # CHANGE
 
 events = model.load_events(catname)
 #print('Number of events:', len(events))
+
+OUTPUT='VEL'                # CHANGE: 'DISP', 'VEL', 'ACC'
 
 ###################################
 
 for file in os.listdir(datadir):
     #select event
     ev_name = os.fsdecode(file)
-
 # check if the file has the same prefix of the event name in the catalogue (for example 'garfagnana')
-    if ev_name.startswith(events[0].name.split('_')[0]): 
+    if ev_name.startswith(events[0].name.split('_')[0]) and ev_name.endswith(OUTPUT): 
+
         ev_path=os.path.join(datadir,ev_name)
 
-
         for ev in events:
-            if ev.name==ev_name:   #if event is present in catalogue
+            if f'{ev.name}_{OUTPUT}'==ev_name:   #if event is present in catalogue
                 print('\nEVENT:',ev_name)
                 #print('lat:',ev.lat,' lon:',ev.lon)
                 event=ev
-                figname = os.path.join(plotdir, ev_name + '_amplitude_vs_distance.pdf')
+                figname = os.path.join(plotdir, f'{ev_name}_amplitude_vs_distance.pdf')
                 
                 if os.path.isfile(figname): # if pdf exist of the event
                     os.remove(figname) # remove it to create a new one with the same name

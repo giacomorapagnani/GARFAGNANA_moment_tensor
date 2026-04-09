@@ -1,6 +1,9 @@
 # Garfagnana config file
 # near stations (local velocity model: garfagnana_near)
 #   polarities
+# mid stations  (local velocity model: garfagnana_far)
+#   fd: 0.08 - 0.2
+#   td: 0.08 - 0.2
 # far stations (regional velocity model: crust2_2hz_m2)
 #   fd: 0.04 - 0.1
 #   td: 0.04 - 0.1
@@ -8,7 +11,7 @@
 rundir_template: runs/${problem_name}.grun
 dataset_config: !grond.DatasetConfig
   stations_path: '../META_DATA/stations_garfagnana_INGV_RESIF_UP.pf'
-  events_path: '../CAT/catalogue_garfagnana_ml_4.pf'
+  events_path: '../CAT/catalogue_garfagnana.pf'
   waveform_paths: ['../DATA/${event_name}']
   #waveform_paths: ..path/to/waveforms work with continous data
   responses_stationxml_paths: ['../META_DATA/stations_garfagnana_INGV_RESIF_UP.xml']
@@ -30,11 +33,52 @@ target_groups:
 
 - !grond.WaveformTargetGroup
   normalisation_family: 'td'
+  path: 'td.mid'
+  weight: 1.0
+  interpolation: 'nearest_neighbor'
+  store_id: garfagnana_far
+  distance_min: 40e3
+  distance_max: 75e3
+  channels: [R,Z,T]
+  exclude: []
+  misfit_config: !grond.WaveformMisfitConfig
+    fmin: 0.08
+    fmax: 0.2
+    ffactor: 1.25
+    domain: 'time_domain'
+    norm_exponent: 1
+    tmin: '{stored:any_P}-10'
+    tmax: '{vel_surface:1.5}'
+    tautoshift_max: 1.0
+    autoshift_penalty_max: 0.2
+- !grond.WaveformTargetGroup
+  normalisation_family: 'fd'
+  path: 'fd.mid'
+  weight: 1.0
+  interpolation: 'nearest_neighbor'
+  store_id: garfagnana_far
+  distance_min: 40e3
+  distance_max: 75e3
+  channels: [R,Z,T]
+  exclude: []
+  misfit_config: !grond.WaveformMisfitConfig
+    fmin: 0.08
+    fmax: 0.2
+    ffactor: 1.25
+    domain: 'frequency_domain'
+    norm_exponent: 1
+    tmin: '{stored:any_P}-10'
+    tmax: '{vel_surface:1.5}'
+    tautoshift_max: 1.0
+    autoshift_penalty_max: 0.2
+
+- !grond.WaveformTargetGroup
+  normalisation_family: 'td'
   path: 'td.far'
   weight: 1.0
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
-  distance_min: 40e3
+  distance_min: 75e3
   distance_max: 300e3
   channels: [R,Z,T]
   exclude: []
@@ -54,7 +98,7 @@ target_groups:
   weight: 1.0
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
-  distance_min: 40e3
+  distance_min: 75e3
   distance_max: 300e3
   channels: [R,Z,T]
   exclude: []
@@ -68,9 +112,9 @@ target_groups:
     tmax: '{vel_surface:1.5}'
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
-    
+
 problem_config: !grond.CMTProblemConfig
-  name_template: cmt_devi_near_far_regional_freq_time_${event_name}
+  name_template: cmt_devi_near_mid_far_regional_freq_time_${event_name}
   norm_exponent: 2
   ranges:
     depth: 1000 .. 20000

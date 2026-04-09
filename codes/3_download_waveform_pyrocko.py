@@ -40,7 +40,7 @@ catdir =  os.path.join(workdir,'CAT')
 meta_datadir=os.path.join(workdir,'META_DATA')
 datadir=os.path.join(workdir,'DATA')
 
-catname = os.path.join(catdir, 'catalogue_garfagnana_ml_4.pf')           #CHANGE 
+catname = os.path.join(catdir, 'catalogue_pistoia.pf')           #CHANGE 
 
 cat = model.load_events(catname)
 print('Number of events:', len(cat))
@@ -53,7 +53,7 @@ clients_names = {                   #CHANGE clients and networks to match the st
 
 # 
 
-stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_2.xml')     #CHANGE 
+stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.xml')     #CHANGE 
 xml_file=read_inventory(stations_name)                                 
 
 #print(stations)

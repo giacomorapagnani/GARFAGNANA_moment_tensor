@@ -37,7 +37,7 @@ newdatadir=os.path.join(workdir,'DATA_response')
 ###################################
 meta_datadir=os.path.join(workdir,'META_DATA')
 
-stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF_UP.xml')
+stations_name=os.path.join(meta_datadir, 'stations_garfagnana_INGV_RESIF.xml')
 stations=read_inventory(stations_name)                             
 #print(stations)
 
@@ -55,7 +55,7 @@ for eventdir in os.listdir(datadir):
         new_eventpath=os.path.join(newdatadir,ev_name + '_' + OUTPUT)
 
         if os.path.isdir(new_eventpath): # check if file already exist
-            print('\nINFO: Event already exists, skipping:',ev_name)
+            print('\n\nINFO: Event already exists, skipping:',ev_name)
             continue
 
         else:
@@ -69,23 +69,27 @@ for eventdir in os.listdir(datadir):
                 else:
                     tr_path=os.path.join(ev_path,tr_name)
                     new_tr_path= os.path.join(new_eventpath,tr_name)  
-            
-                    # select wavelet (obspy)  
-                    w=read(tr_path)
-                    print('loading trace:',tr_path.split('/')[-1])
+                    try:
+                        # select wavelet (obspy)  
+                        w=read(tr_path)
+                        print('loading trace:',tr_path.split('/')[-1])
 
-                    #wave.merge(fill_value=0)
-                    # trim over the [t1, t2] interval
-                    #wave.trim(starttime=event_start, endtime=event_end, pad=True, fill_value=0)
+                        #wave.merge(fill_value=0)
+                        # trim over the [t1, t2] interval
+                        #wave.trim(starttime=event_start, endtime=event_end, pad=True, fill_value=0)
 
-                    # remove trend
-                    w.detrend("demean")
+                        # remove trend
+                        w.detrend("demean")
 
-                    # pre filter
-                    pre_filt = [0.005, 0.01, 45,50]       # for big eq
+                        # pre filter
+                        pre_filt = [0.005, 0.01, 45,50]       # for big eq
 
-                    # remove instrumental response
-                    w.remove_response(inventory=stations, output=OUTPUT, pre_filt=pre_filt)
+                        # remove instrumental response
+                        w.remove_response(inventory=stations, output=OUTPUT, pre_filt=pre_filt)
 
-                    w.write(new_tr_path,format='MSEED')
+                        w.write(new_tr_path,format='MSEED')
+                    except Exception as e:
+                        print(f'EROROR: processing trace {tr_name} in event {ev_name}:\n{e}')
+                        continue
+
             print('Response removed and wavelets saved!')
