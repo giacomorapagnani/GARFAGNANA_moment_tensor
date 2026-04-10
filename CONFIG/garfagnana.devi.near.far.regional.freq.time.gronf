@@ -68,7 +68,7 @@ target_groups:
     tmax: '{vel_surface:1.5}'
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
-    
+
 problem_config: !grond.CMTProblemConfig
   name_template: cmt_devi_near_far_regional_freq_time_${event_name}
   norm_exponent: 2
