@@ -33,7 +33,7 @@ target_groups:
   path: 'td.far'
   weight: 1.0
   interpolation: 'nearest_neighbor'
-  store_id: garfagnana_far
+  store_id: crust2_2hz_m2
   distance_min: 40e3
   distance_max: 300e3
   channels: [R,Z,T]
@@ -53,7 +53,7 @@ target_groups:
   path: 'fd.far'
   weight: 1.0
   interpolation: 'nearest_neighbor'
-  store_id: garfagnana_far
+  store_id: crust2_2hz_m2
   distance_min: 40e3
   distance_max: 300e3
   channels: [R,Z,T]
@@ -70,7 +70,7 @@ target_groups:
     autoshift_penalty_max: 0.2
 
 problem_config: !grond.CMTProblemConfig
-  name_template: cmt_devi_near_far_local_freq_time_${event_name}
+  name_template: cmt_full_near_far_regional_freq_time_${event_name}
   norm_exponent: 2
   ranges:
     depth: 1000 .. 20000
@@ -86,7 +86,7 @@ problem_config: !grond.CMTProblemConfig
     rmnn: -1.5708 .. 1.5708
     time: -2.0 .. 2.0 | add
   distance_min: 1000.0
-  mt_type: deviatoric
+  mt_type: full
 analyser_configs:
 - !grond.TargetBalancingAnalyserConfig
   niterations: 2000
