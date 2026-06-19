@@ -40,7 +40,7 @@ catdir =  os.path.join(workdir,'CAT')
 meta_datadir=os.path.join(workdir,'META_DATA')
 datadir=os.path.join(workdir,'DATA')
 
-catname = os.path.join(catdir, 'catalogue_garfagnana_test.pf')           #CHANGE 
+catname = os.path.join(catdir, 'catalog_garfagnana.pf')           #CHANGE 
 
 cat = model.load_events(catname)
 print('Number of events:', len(cat))
