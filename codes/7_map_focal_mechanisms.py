@@ -13,11 +13,11 @@ metadatadir =  os.path.join(workdir,'META_DATA')
 ##########################################
 # COORDINATES FOR GULF MAP OR POZZUOLI MAP
 
-maxlat=44.208978
-minlat=43.877464
+maxlat=44.30
+minlat=43.95
 
-maxlon=10.601528
-minlon=9.927944
+maxlon=10.60
+minlon=9.90
 
 map_name='garfagnana'
 
@@ -50,7 +50,7 @@ fm_events = model.load_events(events_name)
 ##########################################
 ############## SWITCH ##############
 ##########################################
-switch_deviatoric=True                                                                                                                               
+switch_deviatoric=False                                                                                                                               
 
 # TRUE if you want timestamps
 ##########################################
@@ -58,6 +58,7 @@ switch_deviatoric=True
 ##########################################
 switch_timestamps=False                                                                 
 
+beachball_scale="2.0c"
 
 # loop on events in catalogue and plot FM
 for ev in fm_events:
@@ -84,7 +85,7 @@ for ev in fm_events:
                     scale="1.2c", compressionfill="white",extensionfill="white", pen="1p,black",outline="1p,black")
         else:
             fig.meca(spec=moment_tensor_par,convention='mt', longitude =ev.lon, latitude=ev.lat, depth=ev.depth,
-                    scale="0.8c", compressionfill="#BD2025",extensionfill="white", pen="0.5p,gray30,solid") 
+                    scale=beachball_scale, compressionfill="#BD2025",extensionfill="white", pen="0.5p,gray30,solid") 
     else:
         moment_tensor_par = {
             "strike": ev.moment_tensor.strike1,
@@ -94,7 +95,7 @@ for ev in fm_events:
             }
 
         fig.meca(spec=moment_tensor_par, longitude =ev.lon, latitude=ev.lat, depth=ev.depth,
-                    scale="0.8c", compressionfill="#BD2025",extensionfill="white", pen="0.5p,gray30,solid") 
+                    scale=beachball_scale, compressionfill="#BD2025",extensionfill="white", pen="0.5p,gray30,solid") 
                     # blue : #0066cc        red :  #BD2025
     if switch_timestamps:
         #add event date
@@ -110,7 +111,7 @@ for ev in fm_events:
             )
 
 #   STATIONS
-f=open(metadatadir + '/stations_garfagnana_INGV_RESIF.pf','r')             #CHANGE
+f=open(metadatadir + '/stations_garfagnana_INGV_RESIF_UP.pf','r')             #CHANGE
 latsta=[]
 lonsta=[]
 namsta=[]
@@ -124,7 +125,7 @@ latsta=np.array(latsta)
 lonsta=np.array(lonsta)
 
 # Plot stations
-fig.plot(x=lonsta, y=latsta, style="t0.3", fill="#FFCC4E", pen="black") # yelow filling
+fig.plot(x=lonsta, y=latsta, style="t0.5", fill="#FFCC4E", pen="black") # yelow filling
 #fig.text(x=lonsta+0.005, y=latsta+0.002, text=namsta, justify='BR',font='5p',fill="#FFCC4E")
 
 #fig.legend()

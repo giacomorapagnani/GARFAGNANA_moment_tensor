@@ -35,7 +35,7 @@ target_groups:
   distance_min: 0e3
   distance_max: 50e3
   channels: [R,Z,T]
-  exclude: []
+  exclude: [UP08]
   misfit_config: !grond.WaveformMisfitConfig
     fmin: 0.5
     fmax: 2.0
@@ -71,10 +71,10 @@ analyser_configs:
 optimiser_config: !grond.HighScoreOptimiserConfig
   sampler_phases:
   - !grond.UniformSamplerPhase
-    niterations: 5000
+    niterations: 20000
     ntries_preconstrain_limit: 1000
   - !grond.DirectedSamplerPhase
-    niterations: 30000
+    niterations: 100000
     ntries_preconstrain_limit: 1000
     starting_point: excentricity_compensated
     sampler_distribution: normal

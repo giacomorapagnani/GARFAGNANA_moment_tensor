@@ -31,7 +31,7 @@ workdir='../'
 reportdir=os.path.join(workdir,'report')                       # report dir
 catdir=os.path.join(workdir,'CAT')
 
-catname=os.path.join(catdir,'catalogue_garfagnana_ml_4.pf')    # CHANGE
+catname=os.path.join(catdir,'catalog_garfagnana.pf')    # CHANGE
 
 new_catalogue_name='catalogue_garfagnana_MT'             # CHANGE 
                                                               #  
@@ -52,7 +52,7 @@ if run_get_grond_results:
     goodmttargets = [ev for ev in mttargets if ev.name not in badmtsols]
     print('Good events in catalogue:', len(goodmttargets))
     grondevs = []
-    for vrs in ['cmt_devi_far_']:                    # main report
+    for vrs in ['cmt_devi_near_local_time_','cmt_devi_near_far_regional_freq_time_2_']:                    # main report
         for ev in goodmttargets:
             targetdir = os.path.join(reportdir, ev.name, vrs + ev.name)
             #if not os.path.isdir(targetdir):
