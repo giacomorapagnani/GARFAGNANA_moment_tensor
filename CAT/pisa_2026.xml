@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<q:quakeml xmlns="http://quakeml.org/xmlns/bed/1.2" xmlns:q="http://quakeml.org/xmlns/quakeml/1.2" xmlns:ns0="http://webservices.ingv.it/">
+  <eventParameters publicID="smi:local/5452929c-fcd4-407b-badc-d3a2ffc22bb8">
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46772452">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146580041</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158020861</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>5 km SW Pisa (PI)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-04T11:04:34.000000Z</creationTime>
+        <ns0:id_locator>140659</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146580041">
+        <time>
+          <value>2026-08-04T11:04:11.310000Z</value>
+          <uncertainty>0.17</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6795</value>
+          <uncertainty>0.0054</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.3635</value>
+          <uncertainty>0.0112</uncertainty>
+        </longitude>
+        <depth>
+          <value>10700.0</value>
+          <uncertainty>900.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>103</associatedPhaseCount>
+          <usedPhaseCount>34</usedPhaseCount>
+          <associatedStationCount>93</associatedStationCount>
+          <usedStationCount>25</usedStationCount>
+          <standardError>0.35</standardError>
+          <azimuthalGap>106.0</azimuthalGap>
+          <minimumDistance>0.0</minimumDistance>
+          <maximumDistance>1.20419</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T11:12:01.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AB</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>640.0</horizontalUncertainty>
+          <minHorizontalUncertainty>642.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>643.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>81.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158020861">
+        <mag>
+          <value>3.2</value>
+          <uncertainty>0.2</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146580041</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>39</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T11:12:01.000000Z</creationTime>
+          <ns0:mag_quality>AB</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46772292">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146579731</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158020561</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>4 km SW Pisa (PI)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-04T10:47:25.000000Z</creationTime>
+        <ns0:id_locator>140656</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146579731">
+        <time>
+          <value>2026-08-04T10:47:01.660000Z</value>
+          <uncertainty>0.17</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6903</value>
+          <uncertainty>0.0072</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.361</value>
+          <uncertainty>0.0112</uncertainty>
+        </longitude>
+        <depth>
+          <value>10500.0</value>
+          <uncertainty>1000.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>43</associatedPhaseCount>
+          <usedPhaseCount>30</usedPhaseCount>
+          <associatedStationCount>34</associatedStationCount>
+          <usedStationCount>21</usedStationCount>
+          <standardError>0.35</standardError>
+          <azimuthalGap>105.0</azimuthalGap>
+          <minimumDistance>0.0</minimumDistance>
+          <maximumDistance>1.1943</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T10:54:15.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AB</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>830.0</horizontalUncertainty>
+          <minHorizontalUncertainty>652.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>831.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>234.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158020561">
+        <mag>
+          <value>2.3</value>
+          <uncertainty>0.2</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146579731</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>23</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T10:54:15.000000Z</creationTime>
+          <ns0:mag_quality>AA</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46770182">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576581</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158017581</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>4 km S Pisa (PI)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-04T08:31:14.000000Z</creationTime>
+        <ns0:id_locator>140613</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576581">
+        <time>
+          <value>2026-08-04T08:30:49.340000Z</value>
+          <uncertainty>0.28</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6777</value>
+          <uncertainty>0.009</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.3928</value>
+          <uncertainty>0.0236</uncertainty>
+        </longitude>
+        <depth>
+          <value>12400.0</value>
+          <uncertainty>2000.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>33</associatedPhaseCount>
+          <usedPhaseCount>16</usedPhaseCount>
+          <associatedStationCount>28</associatedStationCount>
+          <usedStationCount>11</usedStationCount>
+          <standardError>0.34</standardError>
+          <azimuthalGap>187.0</azimuthalGap>
+          <minimumDistance>0.0</minimumDistance>
+          <maximumDistance>0.84536</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:49:06.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AD</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>1430.0</horizontalUncertainty>
+          <minHorizontalUncertainty>1293.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>1426.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>248.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158017581">
+        <mag>
+          <value>1.7</value>
+          <uncertainty>0.3</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576581</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>18</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:49:06.000000Z</creationTime>
+          <ns0:mag_quality>AC</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46770022">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576241</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158017211</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>6 km SW Pisa (PI)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-04T08:23:46.000000Z</creationTime>
+        <ns0:id_locator>140609</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576241">
+        <time>
+          <value>2026-08-04T08:23:21.860000Z</value>
+          <uncertainty>0.2</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6892</value>
+          <uncertainty>0.0072</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.341</value>
+          <uncertainty>0.0211</uncertainty>
+        </longitude>
+        <depth>
+          <value>10900.0</value>
+          <uncertainty>2100.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>18</associatedPhaseCount>
+          <usedPhaseCount>18</usedPhaseCount>
+          <associatedStationCount>10</associatedStationCount>
+          <usedStationCount>10</usedStationCount>
+          <standardError>0.26</standardError>
+          <azimuthalGap>193.0</azimuthalGap>
+          <minimumDistance>0.1367</minimumDistance>
+          <maximumDistance>0.5306</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:37:40.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AD</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>1410.0</horizontalUncertainty>
+          <minHorizontalUncertainty>1067.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>1408.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>259.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158017211">
+        <mag>
+          <value>1.6</value>
+          <uncertainty>0.2</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146576241</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>10</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:37:40.000000Z</creationTime>
+          <ns0:mag_quality>BB</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46769822">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146575831</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158016771</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>7 km W Pisa (PI)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-04T08:15:42.000000Z</creationTime>
+        <ns0:id_locator>140603</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146575831">
+        <time>
+          <value>2026-08-04T08:15:18.640000Z</value>
+          <uncertainty>0.18</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6925</value>
+          <uncertainty>0.0063</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.3263</value>
+          <uncertainty>0.01</uncertainty>
+        </longitude>
+        <depth>
+          <value>8200.0</value>
+          <uncertainty>800.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>148</associatedPhaseCount>
+          <usedPhaseCount>42</usedPhaseCount>
+          <associatedStationCount>124</associatedStationCount>
+          <usedStationCount>26</usedStationCount>
+          <standardError>0.34</standardError>
+          <azimuthalGap>189.0</azimuthalGap>
+          <minimumDistance>0.0</minimumDistance>
+          <maximumDistance>1.17721</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:30:59.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AD</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>910.0</horizontalUncertainty>
+          <minHorizontalUncertainty>106.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>915.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>59.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158016771">
+        <mag>
+          <value>4.3</value>
+          <uncertainty>0.3</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146575831</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>44</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-04T08:30:58.000000Z</creationTime>
+          <ns0:mag_quality>BB</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+  </eventParameters>
+</q:quakeml>
