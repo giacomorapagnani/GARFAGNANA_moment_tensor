@@ -1,0 +1,22 @@
+# missing instrumental response
+UP08
+UP10
+# tilt
+UP02
+UP03
+UP.UP04..R
+UP.UP04..T
+UP05
+# no recorded traces
+MAIM
+PLMA
+# blacklist
+EQUI
+GRAM
+POPM
+LATE
+PCP
+SARZ
+TEOL
+ROVR
+MBAL

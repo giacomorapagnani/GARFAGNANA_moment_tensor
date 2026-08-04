@@ -75,7 +75,7 @@ station_file_name: "stations"
 # Data centre for STATIONS and WAVEFORMS.  Common values:
 #   IRIS, INGV, GEOFON, ORFEUS, BGR, ETH, RASPISHAKE, NCEDC, SCEDC, GFZ …
 # Full list: https://docs.obspy.org/packages/obspy.clients.fdsn.html
-fdsn_site: "INGV"
+fdsn_site: "RESIF"
 
 # Data centre for EVENTS.  Only used when the catalog comes from FDSN
 # (existing_catalog_pf: null).
