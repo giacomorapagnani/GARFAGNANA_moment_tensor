@@ -38,7 +38,7 @@ download_mode: "event"
 #   null        → download the catalog from FDSN (and save it in CAT/)
 #   "file.pf"   → bare filename: looked up inside CAT/
 #   "/abs/path" → absolute path used as-is
-existing_catalog_pf: "pisa_2026.pf"      # e.g.  "my_catalog.pf"  or  null
+existing_catalog_pf: "san_giuliano_2026.pf"      # e.g.  "my_catalog.pf"  or  null
 
 # Station metadata in StationXML format.
 # When set, the station search area and the network/station selection below
@@ -48,7 +48,7 @@ existing_catalog_pf: "pisa_2026.pf"      # e.g.  "my_catalog.pf"  or  null
 #   null        → query stations from FDSN (and save StationXML in META_DATA/)
 #   "file.xml"  → bare filename: looked up inside META_DATA/
 #   "/abs/path" → absolute path used as-is
-existing_stations_xml: "stations_garfagnana_INGV_RESIF_UP.xml"    # e.g.  "stations_flegrei_INGV_final.xml"  or  null
+existing_stations_xml: null    # e.g.  "stations_flegrei_INGV_final.xml"  or  null
 
 # ── Output naming ─────────────────────────────────────────────────────────────
 
@@ -68,14 +68,14 @@ event_label: "pisa"
 #   Produces:  META_DATA/<station_file_name>.xml            (full inventory)
 #              META_DATA/<station_file_name>/
 #                  <station_file_name>_NET_STA.xml          (one per station)
-station_file_name: "stations"
+station_file_name: "stations_pisa"
 
 # ── FDSN server ───────────────────────────────────────────────────────────────
 
 # Data centre for STATIONS and WAVEFORMS.  Common values:
 #   IRIS, INGV, GEOFON, ORFEUS, BGR, ETH, RASPISHAKE, NCEDC, SCEDC, GFZ …
 # Full list: https://docs.obspy.org/packages/obspy.clients.fdsn.html
-fdsn_site: "RESIF"
+fdsn_site: "INGV"
 
 # Data centre for EVENTS.  Only used when the catalog comes from FDSN
 # (existing_catalog_pf: null).
@@ -90,8 +90,8 @@ fdsn_site_events: null
 
 # Format: "YYYY-MM-DD HH:MM:SS".  Used for: the FDSN event query (event
 # mode), the FDSN station query, and the continuous download span.
-tmin: "2026-08-04 00:00:00"
-tmax: "2026-08-04 12:00:00"
+tmin: "2026-07-30 00:00:00"
+tmax: "2026-08-01 00:00:00"
 
 # ── Event search area  (event mode, FDSN catalog only) ────────────────────────
 
@@ -125,9 +125,9 @@ depth_max_km:  30.0
 
 # ALWAYS circular and INDEPENDENT from the event search area above.
 # Ignored when existing_stations_xml is set.
-lat_center_sta:  40.83
-lon_center_sta:  14.14
-radius_km_sta:   50.0
+lat_center_sta:  43.705
+lon_center_sta:  10.334
+radius_km_sta:   70.0
 
 # ── Station / channel selection ───────────────────────────────────────────────
 
@@ -140,7 +140,7 @@ radius_km_sta:   50.0
 network:  "*"
 station:  "*"
 location: "*"
-channel:  "HH?,BH?"
+channel:  "HH?"
 
 # ── Waveform time window  (event mode) ────────────────────────────────────────
 
@@ -163,7 +163,7 @@ chunk_hours: 24
 
 # Simultaneous download connections.
 # Keep it small (3-5): FDSN servers throttle aggressive clients.
-parallel_downloads: 4
+parallel_downloads: 2
 
 # ── Map preview ───────────────────────────────────────────────────────────────
 
