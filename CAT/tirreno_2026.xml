@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<q:quakeml xmlns="http://quakeml.org/xmlns/bed/1.2" xmlns:q="http://quakeml.org/xmlns/quakeml/1.2" xmlns:ns0="http://webservices.ingv.it/">
+  <eventParameters publicID="smi:local/8743be1d-f05b-4775-a91e-0c8753ca5f7d">
+    <event publicID="smi:webservices.ingv.it/fdsnws/event/1/query?eventId=46861812">
+      <preferredOriginID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146777601</preferredOriginID>
+      <preferredMagnitudeID>smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158225781</preferredMagnitudeID>
+      <type>earthquake</type>
+      <description>
+        <text>Costa Toscana settentrionale (Massa-Carrara, Lucca, Pisa)</text>
+        <type>region name</type>
+      </description>
+      <creationInfo>
+        <agencyID>INGV</agencyID>
+        <author>hew1#MOD_EQASSEMBLE</author>
+        <creationTime>2026-08-12T08:57:35.000000Z</creationTime>
+        <ns0:id_locator>142915</ns0:id_locator>
+        <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+      </creationInfo>
+      <origin publicID="smi:webservices.ingv.it/fdsnws/event/1/query?originId=146777601">
+        <time>
+          <value>2026-08-12T08:57:09.570000Z</value>
+          <uncertainty>0.28</uncertainty>
+        </time>
+        <latitude>
+          <value>43.6623</value>
+          <uncertainty>0.0081</uncertainty>
+        </latitude>
+        <longitude>
+          <value>10.1947</value>
+          <uncertainty>0.0137</uncertainty>
+        </longitude>
+        <depth>
+          <value>8600.0</value>
+          <uncertainty>1400.0</uncertainty>
+        </depth>
+        <depthType>from location</depthType>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <earthModelID>smi:webservices.ingv.it/fdsnws/event/1/query?earthModelId=1</earthModelID>
+        <quality>
+          <associatedPhaseCount>154</associatedPhaseCount>
+          <usedPhaseCount>26</usedPhaseCount>
+          <associatedStationCount>136</associatedStationCount>
+          <usedStationCount>14</usedStationCount>
+          <standardError>0.37</standardError>
+          <azimuthalGap>172.0</azimuthalGap>
+          <minimumDistance>0.0</minimumDistance>
+          <maximumDistance>2.33644</maximumDistance>
+        </quality>
+        <type>hypocenter</type>
+        <evaluationMode>manual</evaluationMode>
+        <evaluationStatus>reviewed</evaluationStatus>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-12T09:09:53.000000Z</creationTime>
+          <version>100</version>
+          <ns0:quality>AC</ns0:quality>
+          <ns0:doi>https://doi.org/10.13127/ISIDE</ns0:doi>
+        </creationInfo>
+        <originUncertainty>
+          <preferredDescription>uncertainty ellipse</preferredDescription>
+          <horizontalUncertainty>1020.0</horizontalUncertainty>
+          <minHorizontalUncertainty>855.0</minHorizontalUncertainty>
+          <maxHorizontalUncertainty>1022.0</maxHorizontalUncertainty>
+          <azimuthMaxHorizontalUncertainty>64.0</azimuthMaxHorizontalUncertainty>
+          <confidenceLevel>68.0</confidenceLevel>
+        </originUncertainty>
+      </origin>
+      <magnitude publicID="smi:webservices.ingv.it/fdsnws/event/1/query?magnitudeId=158225781">
+        <mag>
+          <value>3.7</value>
+          <uncertainty>0.3</uncertainty>
+        </mag>
+        <type>ML</type>
+        <originID>smi:webservices.ingv.it/fdsnws/event/1/query?originId=146777601</originID>
+        <methodID>smi:webservices.ingv.it/fdsnws/event/1/query?methodId=1</methodID>
+        <stationCount>330</stationCount>
+        <comment>
+          <text>Local magnitude</text>
+        </comment>
+        <creationInfo>
+          <agencyID>INGV</agencyID>
+          <author>SURVEY-INGV</author>
+          <creationTime>2026-08-12T09:09:53.000000Z</creationTime>
+          <ns0:mag_quality>AC</ns0:mag_quality>
+        </creationInfo>
+      </magnitude>
+    </event>
+  </eventParameters>
+</q:quakeml>

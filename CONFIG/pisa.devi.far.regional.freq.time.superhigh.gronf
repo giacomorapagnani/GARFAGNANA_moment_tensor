@@ -1,6 +1,6 @@
 # Pisa config file
 # far stations (regional velocity model: crust2_2hz_m2)
-# f: 0.1 - 1.0
+# f: 0.1 - 0.6
 --- !grond.Config
 rundir_template: runs/${problem_name}.grun
 dataset_config: !grond.DatasetConfig
@@ -26,12 +26,12 @@ target_groups:
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
     fmin: 0.1
-    fmax: 1.0
+    fmax: 0.6
     ffactor: 1.25
     domain: 'time_domain'
     norm_exponent: 1
-    tmin: '{stored:P}-5'
-    tmax: '{vel_surface:1.5}'
+    tmin: '{stored:P}-2'
+    tmax: '{stored:S}+3'
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
 - !grond.WaveformTargetGroup
@@ -46,12 +46,12 @@ target_groups:
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
     fmin: 0.1
-    fmax: 1.0
+    fmax: 0.6
     ffactor: 1.25
     domain: 'frequency_domain'
     norm_exponent: 1
-    tmin: '{stored:P}-5'
-    tmax: '{vel_surface:1.5}'
+    tmin: '{stored:P}-2'
+    tmax: '{stored:S}+3'
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
 problem_config: !grond.CMTProblemConfig
@@ -81,7 +81,7 @@ optimiser_config: !grond.HighScoreOptimiserConfig
     niterations: 5000
     ntries_preconstrain_limit: 1000
   - !grond.DirectedSamplerPhase
-    niterations: 30000
+    niterations: 20000
     ntries_preconstrain_limit: 1000
     starting_point: excentricity_compensated
     sampler_distribution: normal

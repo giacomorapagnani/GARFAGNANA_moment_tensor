@@ -38,7 +38,7 @@ download_mode: "event"
 #   null        → download the catalog from FDSN (and save it in CAT/)
 #   "file.pf"   → bare filename: looked up inside CAT/
 #   "/abs/path" → absolute path used as-is
-existing_catalog_pf: "san_giuliano_2026.pf"      # e.g.  "my_catalog.pf"  or  null
+existing_catalog_pf: "tirreno_2026.pf"      # e.g.  "my_catalog.pf"  or  null
 
 # Station metadata in StationXML format.
 # When set, the station search area and the network/station selection below
@@ -48,14 +48,14 @@ existing_catalog_pf: "san_giuliano_2026.pf"      # e.g.  "my_catalog.pf"  or  nu
 #   null        → query stations from FDSN (and save StationXML in META_DATA/)
 #   "file.xml"  → bare filename: looked up inside META_DATA/
 #   "/abs/path" → absolute path used as-is
-existing_stations_xml: null    # e.g.  "stations_flegrei_INGV_final.xml"  or  null
+existing_stations_xml: "stations_garfagnana_INGV_RESIF_UP.xml"    # e.g.  "stations_flegrei_INGV_final.xml"  or  null
 
 # ── Output naming ─────────────────────────────────────────────────────────────
 
 # Base name for the catalog files written to CAT/ (no extension).
 # Used only when the catalog comes from FDSN (existing_catalog_pf: null).
 #   Produces:  CAT/<catalog_name>.xml   .txt   .pf
-catalog_name: "pisa_2026"
+catalog_name: "tirreno_2026"
 
 # Short label used as prefix for event names and continuous filenames.
 #   event mode      : DATA/<event_label>_yyyy_mm_dd_hh_mm_ss/   (FDSN catalog;
@@ -75,7 +75,7 @@ station_file_name: "stations_pisa"
 # Data centre for STATIONS and WAVEFORMS.  Common values:
 #   IRIS, INGV, GEOFON, ORFEUS, BGR, ETH, RASPISHAKE, NCEDC, SCEDC, GFZ …
 # Full list: https://docs.obspy.org/packages/obspy.clients.fdsn.html
-fdsn_site: "INGV"
+fdsn_site: "RESIF"
 
 # Data centre for EVENTS.  Only used when the catalog comes from FDSN
 # (existing_catalog_pf: null).
@@ -90,8 +90,8 @@ fdsn_site_events: null
 
 # Format: "YYYY-MM-DD HH:MM:SS".  Used for: the FDSN event query (event
 # mode), the FDSN station query, and the continuous download span.
-tmin: "2026-07-30 00:00:00"
-tmax: "2026-08-01 00:00:00"
+tmin: "2026-08-11 00:00:00"
+tmax: "2026-08-12 13:00:00"
 
 # ── Event search area  (event mode, FDSN catalog only) ────────────────────────
 
@@ -109,12 +109,12 @@ lon_max:  14.20
 # Circular area (decimal degrees / km)
 lat_center:  43.705 
 lon_center:  10.334
-radius_km:   15.0
+radius_km:   30.0
 
 # ── Event filters  (event mode, FDSN catalog only) ────────────────────────────
 
 # Magnitude range.  Use null to disable either bound.
-mag_min:  1.5
+mag_min:  3.0
 mag_max:  null
 
 # Depth range in km.  Use null to disable either bound.

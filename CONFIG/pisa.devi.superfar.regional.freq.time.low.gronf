@@ -1,6 +1,6 @@
 # Pisa config file
 # far stations (regional velocity model: crust2_2hz_m2)
-# f: 0.02 - 0.08
+# f: 0.03 - 0.1
 --- !grond.Config
 rundir_template: runs/${problem_name}.grun
 dataset_config: !grond.DatasetConfig
@@ -21,12 +21,12 @@ target_groups:
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 10e3
-  distance_max: 250e3
+  distance_max: 180e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
-    fmin: 0.02
-    fmax: 0.08
+    fmin: 0.03
+    fmax: 0.1
     ffactor: 1.25
     domain: 'time_domain'
     norm_exponent: 1
@@ -41,12 +41,12 @@ target_groups:
   interpolation: 'nearest_neighbor'
   store_id: crust2_2hz_m2
   distance_min: 10e3
-  distance_max: 250e3
+  distance_max: 180e3
   channels: [R,Z,T]
   exclude: []
   misfit_config: !grond.WaveformMisfitConfig
-    fmin: 0.02
-    fmax: 0.08
+    fmin: 0.03
+    fmax: 0.1
     ffactor: 1.25
     domain: 'frequency_domain'
     norm_exponent: 1
@@ -55,10 +55,10 @@ target_groups:
     tautoshift_max: 1.0
     autoshift_penalty_max: 0.2
 problem_config: !grond.CMTProblemConfig
-  name_template: cmt_devi_far_regional_freq_time_superlow_${event_name}
+  name_template: cmt_devi_superfar_regional_freq_time_low_${event_name}
   norm_exponent: 2
   ranges:
-    depth: 1000 .. 10000
+    depth: 1000 .. 12000
     duration: 0.1 .. 0.1
     east_shift: -5000 .. 5000
     magnitude: 2. .. 5.
@@ -78,10 +78,10 @@ analyser_configs:
 optimiser_config: !grond.HighScoreOptimiserConfig
   sampler_phases:
   - !grond.UniformSamplerPhase
-    niterations: 5000
+    niterations: 10000
     ntries_preconstrain_limit: 1000
   - !grond.DirectedSamplerPhase
-    niterations: 30000
+    niterations: 50000
     ntries_preconstrain_limit: 1000
     starting_point: excentricity_compensated
     sampler_distribution: normal
